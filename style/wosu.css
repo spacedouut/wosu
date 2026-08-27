@@ -117,6 +117,7 @@ html { scrollbar-color: var(--shell-2) var(--void); }
    ============================================================ */
 
 nav#main-nav {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -1185,7 +1186,7 @@ input:focus { border-color: var(--salmon); }
    ============================================================ */
 
 @media screen and (max-width: 980px) {
-  nav .nav-link { display: none; }
+  nav .nav-link a:not(.brand) { display: none; }
   nav .nav-tool a { display: none; }
   nav .brand { margin-right: 4px; }
   nav .nav-search { margin: 0 6px; }
