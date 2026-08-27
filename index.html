@@ -232,7 +232,7 @@
                 })
             }
             // new
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
+            addBeatmapList("https://api.wosu.spacedouut.xyz/beatmaplist?0=20&1=0&2=2&5=1",
                 document.getElementById("beatmap-list-new"),
                 function(t){return (t.modes&1)!=0;}, 4);
             // random
@@ -242,12 +242,12 @@
                 
                 // fill list
                 let randstart = Math.floor(Math.random()*20000);
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1="+randstart+"&2=1&5=1", list,
+                addBeatmapList("https://api.wosu.spacedouut.xyz/beatmaplist?0=10&1="+randstart+"&2=1&5=1", list,
                     function(t){while (list.firstChild) list.removeChild(list.firstChild); return (t.modes&1)!=0;}, 4);
             }
             genRandomList();
             // hot
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById("beatmap-list-hot"));
+            addBeatmapList("https://api.wosu.spacedouut.xyz/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById("beatmap-list-hot"));
             // liked
             if (window.localforage) {
                 window.localforage.getItem("likedsidset", function(err, val){

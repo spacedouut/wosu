@@ -210,7 +210,7 @@ var NSaddBeatmapList = {
         pBeatmapArtist.innerText = map.artist;
         pBeatmapCreator.innerText = "mapped by " + map.creator;
         pBeatmapCover.alt = "cover" + map.sid;
-        pBeatmapCover.src = "https://cdn.sayobot.cn:25225/beatmaps/" + map.sid + "/covers/cover.webp";
+        pBeatmapCover.src = "https://api.wosu.spacedouut.xyz/beatmaps/" + map.sid + "/covers/cover.webp";
         list.appendChild(pBeatmapBox);
         pBeatmapApproved.innerText = approvedText(map.approved);
         return pBeatmapBox;
@@ -286,7 +286,7 @@ var NSaddBeatmapList = {
 
     // async
     requestMoreInfo: function(box) {
-        let url = "https://api.sayobot.cn/beatmapinfo?1=" + box.sid;
+        let url = "https://api.wosu.spacedouut.xyz/beatmapinfo?1=" + box.sid;
         let xhr = new XMLHttpRequest();
         xhr.responseType = 'text';
         xhr.open("GET", url);
@@ -352,7 +352,7 @@ function addBeatmapList(listurl, list, filter, maxsize) {
 
 function addBeatmapSid(sid, list) {
     if (!list) list = document.getElementById("beatmap-list");
-    let url = "https://api.sayobot.cn/v2/beatmapinfo?0=" + sid;
+    let url = "https://api.wosu.spacedouut.xyz/v2/beatmapinfo?0=" + sid;
     let xhr = new XMLHttpRequest();
     xhr.responseType = 'text';
     xhr.open("GET", url);

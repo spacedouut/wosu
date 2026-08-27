@@ -12,7 +12,7 @@ function startpreview(box) {
             audios[i].softstop();
     let a = document.createElement("audio");
     let s = document.createElement("source");
-    s.src = "https://cdn.sayobot.cn:25225/preview/" + box.sid + ".mp3";
+    s.src = "https://api.wosu.spacedouut.xyz/preview/" + box.sid + ".mp3";
     s.type = "audio/mpeg";
     a.appendChild(s);
     a.volume = 0;
@@ -53,7 +53,14 @@ function startdownload(box) {
 	if (box.downloading) {
 		return;
 	}
-	let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + box.sid;
+	let mirrors = [
+        "https://api.wosu.spacedouut.xyz/d/" + box.sid,
+        "https://osu.direct/d/" + box.sid,
+        "https://txy1.sayobot.cn/beatmaps/download/mini/" + box.sid
+    ];
+    let url = mirrors[0];
+    box._mirrors = mirrors;
+    box._mirrorIndex = 0;
 	box.downloading = true;
     box.classList.add("downloading");
     let xhr = new XMLHttpRequest();
@@ -84,6 +91,14 @@ function startdownload(box) {
 		bar.value = e.loaded / e.total;
     }
     xhr.onerror = function() {
+        if (box._mirrorIndex + 1 < box._mirrors.length) {
+            box._mirrorIndex++;
+            url = box._mirrors[box._mirrorIndex];
+            console.log("retrying mirror", url);
+            xhr.open("GET", url);
+            xhr.send();
+            return;
+        }
     	console.error("download failed");
         alert("Beatmap download failed. Please retry later.")
 		box.downloading = false;
