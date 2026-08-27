@@ -8,27 +8,28 @@
         <link rel="stylesheet" type="text/css" href="style/main.css">
         <link rel="stylesheet" type="text/css" href="style/font.css">
         <script src="scripts/settings.js"></script>
-    </head>
+        <script src="scripts/i18n.js"></script>
+</head>
 
     <body>
         <nav id="main-nav">
             <div class="nav-link">
-                <a href="index.html" class="brand">Osaka Salmon University!</a>
-                <a href="new.html" class="pseudo button">最新</a>
-                <a href="hot.html" class="pseudo button">热门</a>
-                <a href="genre.html" class="pseudo button">分类</a>
+                <a href="index.html" class="brand" data-i18n="nav.brand">Osaka Salmon University!</a>
+                <a href="new.html" class="pseudo button" data-i18n="nav.latest">最新</a>
+                <a href="hot.html" class="pseudo button" data-i18n="nav.hot">热门</a>
+                <a href="genre.html" class="pseudo button" data-i18n="nav.genre">分类</a>
             </div>
             <div class="nav-search">
                 <form action="search.html">
-                    <input type="text" name="q" placeholder="谱面关键词或sid"/>
+                    <input type="text" name="q" data-i18n-placeholder="nav.search.placeholder" placeholder="谱面关键词或sid"/>
                     <input type="image" class="search-button" src="research.svg">
                 </form>
             </div>
             <div class="nav-tool">
-                <a href="local.html" class="pseudo button">收藏夹</a>
-                <a href="faq.html" class="pseudo button">常见问题</a>
+                <a href="local.html" class="pseudo button" data-i18n="nav.favorites">收藏夹</a>
+                <a href="faq.html" class="pseudo button" data-i18n="nav.faq">常见问题</a>
                 <a href="settings.html" class="pseudo button active">设置</a>
-                <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">进入全屏</a>
+                <a onclick="document.documentElement.requestFullscreen();" class="pseudo button" data-i18n="nav.fullscreen">进入全屏</a>
             </div>
         </nav>
         <div class="main-page" id="main-page">
